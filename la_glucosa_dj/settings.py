@@ -46,6 +46,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'crispy_forms',
     'crispy_forms_bootstrap2',
+    'django_extensions'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap"
