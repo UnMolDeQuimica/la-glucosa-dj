@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-v1few2jub+@nwf05+d3+syo4ou5=#&(^#vk1i$9jlf8=xd!zw7
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["https://glucose.unmoldequimica.site/"]
+CSRF_TRUSTED_ORIGINS = ["https://glucose.unmoldequimica.site"]
 
 # Application definition
 
