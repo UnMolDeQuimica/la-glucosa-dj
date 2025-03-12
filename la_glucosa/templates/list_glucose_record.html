@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<h1>{% trans 'Glucose measures registry' %}</h1>
+
+<a href="{% url 'glucose_create' %}"><button class="btn btn-info">{% trans 'Add new entry' %}</button></a>
+
+
+<div class="mx-auto" style="width: 80%; height: 50%;">
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+    var config = {
+        data: {
+          datasets: [
+          {
+            type: "line",
+            label: "Glucose",
+            data: [
+              {% for object in object_list %}
+                {
+                  x: "{{ object.date }}",
+                  y: "{{ object.value }}",
+                },
+              {% endfor %}
+            ],
+          },
+          ]
+        },
+      }
+    new Chart(ctx, config);
+  </script>
+
+
+{% for object in object_list.reverse %}
+<h3><a href="{% url 'glucose_update' object.pk %}">{{ object.date }}: {{ object.value }} mg/dL</a></h3>
+
+{% endfor %}
+{% endblock content %}
